@@ -1,11 +1,14 @@
 import sys
+sys.path.append('/home/gpadmin/.local/lib/python3.5/site-packages/')
+sys.path.remove('/usr/local/gpdb/lib/python')
+print(sys.path)
 import h5py
 import numpy as np
 import psycopg2
 import glob
 import os
 from keras.datasets import cifar10
-sys.path.append('/home/gpadmin/.local/lib/python3.5/site-packages/')
+
 from madlib_image_loader import ImageLoader, DbCredentials
 
 
@@ -48,7 +51,7 @@ class ImageNetLoader(object):
 
 def get_all_h5(fdir):
     return sorted(glob.glob(os.path.join(fdir, '*.h5')))
-if __name__ = "__main__":
+if __name__ == "__main__":
     
     db_creds = DbCredentials(db_name='cerebro',
         user='gpadmin',
